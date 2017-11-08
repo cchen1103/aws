@@ -16,6 +16,8 @@ node('master'){
     docker.image('alpine').inside("--user=root -v ${path}/tf:/tf") {
 
       sh 'apk --update add terraform'
+      sh 'terraform init'
+      sh 'ls /tf'
       sh 'terraform plan /tf'
 
     }
