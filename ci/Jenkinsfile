@@ -3,7 +3,7 @@ node('master'){
     /* Pull aws infrastructure builder repo */
 
     def tf
-    tf = docker.image('alpine').inside() {
+    tf = docker.image('alpine').inside('--user=root') {
 
       sh 'apk --update add terraform git'
       sh 'git clone https://github.com/cchen1103/aws.git'
@@ -12,7 +12,7 @@ node('master'){
       sh 'terraform plan aws'
     }
   }
-  
+
   stage('Show build plan') {
     /* Show terraform build plan */
 
