@@ -18,6 +18,8 @@ node('master'){
       sh 'apk --update add terraform'
       sh 'terraform init'
       sh 'ls /tf'
+      sh 'ls'
+      sh 'pwd'
       sh 'terraform plan /tf'
 
     }
