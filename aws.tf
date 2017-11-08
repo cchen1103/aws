@@ -1,7 +1,8 @@
 # variable settings
 # this terraform is set up a dev docker-data-center in aws
+
 variable "env" {
-  description = "code for the env: 'dev' or 'prod'"
+  description = "code for the env: dev or prod"
 }
 
 variable "aws_region" {
@@ -11,7 +12,7 @@ variable "aws_region" {
 
 variable "aws_ami" {
   description = "aws golden image ami"
-  aws_ami =
+  aws_ami = "ami-8c1be5f6"
 }
 
 variable "instance_type" {
