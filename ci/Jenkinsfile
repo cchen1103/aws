@@ -2,18 +2,23 @@ node('master'){
   stage('Pull aws infra repo') {
     /* Pull aws infrastructure builder repo */
 
-    dir('tf') {
+    def tf
+    tf = docker.image('alpine').inside() {
 
-      git url: 'https://github.com/cchen1103/aws.git'
+      sh 'apk --update add terraform git'
+      sh 'git clone https://github.com/cchen1103/aws.git'
 
-     }
+      sh 'terraform init aws'
+      sh 'terraform plan aws'
+    }
   }
+  
   stage('Show build plan') {
     /* Show terraform build plan */
 
     def path
     path = pwd()
-    docker.image('alpine').inside("--user=root -v ${path}/tf:/tf") {
+    docker.image('alpine').inside("-v ${path}/tf:/tf --user=root") {
 
       sh 'apk --update add terraform'
       sh 'terraform init'
