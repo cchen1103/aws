@@ -8,9 +8,8 @@ node('master'){
       sh 'apk --update add terraform git'
       sh 'rm -rf aws'
       sh 'git clone https://github.com/cchen1103/aws.git'
-
-      sh 'terraform init aws'
       sh 'terraform plan aws'
+      
     }
   }
 
