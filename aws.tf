@@ -48,6 +48,7 @@ resource "aws_instance" "docker_swarm" {
   tags {
     Name = "${var.service_swarm}"
   }
+}
 
 resource "aws_security_group" "instance" {
   name = "docker_swarm_instance"
