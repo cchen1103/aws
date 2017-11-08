@@ -11,7 +11,9 @@ node('master'){
   stage('Show build plan') {
     /* Show terraform build plan */
 
-    docker.image('alpine').inside("--user=root -v `pwd`/tf:/tf") {
+    def path
+    path = pwd()
+    docker.image('alpine').inside("--user=root -v ${path}/tf:/tf") {
 
       sh 'apk --update add terraform'
       sh 'terraform plan /tf'
