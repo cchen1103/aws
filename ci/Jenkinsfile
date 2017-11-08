@@ -11,12 +11,11 @@ node('master'){
   stage('Show build plan') {
     /* Show terraform build plan */
 
-    docker.image('alpine').inside('--user=root -v ./tf:/tf'){
+    docker.image('alpine').inside("--user=root -v `pwd`/tf:/tf") {
 
       sh 'apk --update add terraform'
       sh 'terraform plan /tf'
-      
+
     }
   }
-
 }
