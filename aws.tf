@@ -49,7 +49,7 @@ resource "aws_instance" "docker_swarm" {
     Name = "${var.service_swarm}"
   }
 
-resource "aws_security_group" "instance"
+resource "aws_security_group" "instance" {
   name = "docker_swarm_instance"
 
   ingress {
