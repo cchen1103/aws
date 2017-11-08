@@ -12,7 +12,7 @@ variable "aws_region" {
 
 variable "aws_ami" {
   description = "aws golden image ami"
-  aws_ami = "ami-8c1be5f6"
+  default = "ami-8c1be5f6"
 }
 
 variable "instance_type" {
