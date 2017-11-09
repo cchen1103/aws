@@ -26,12 +26,11 @@ variable "instance_type" {
 
 # configure backend state using S3 for team sharing on build state
 data "terraform_remote_state" "aws_infra" {
-  backend "s3" {
-    config {
-      bucket = "aws_infra_tf_state"
-      key = "infra/${var.env}/terraform.tfstate"
-      region = "${var.aws_region}"
-    }
+  backend = "s3"
+  config {
+    bucket = "aws_infra_tf_state"
+    key = "infra/${var.env}/terraform.tfstate"
+    region = "${var.aws_region}"
   }
 }
 
