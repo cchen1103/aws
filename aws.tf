@@ -46,7 +46,7 @@ resource "aws_instance" "docker_swarm" {
   instance_type = "${lookup(var.instance_type,var.env)}"
 
   tags {
-    Name = "${var.service_swarm}"
+    Name = "docker_swarm"
   }
 }
 
