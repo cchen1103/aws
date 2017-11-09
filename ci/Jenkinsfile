@@ -8,8 +8,8 @@ node('master'){
       sh 'apk --update add terraform git'
       sh 'rm -rf aws'
       sh 'git clone https://github.com/cchen1103/aws.git'
-      sh "export AWS_ACCESS_KEY_ID=${params.aws_id}"
-      sh "export AWS_SECRET_ACCESS_KEY=${params.aws_key}"
+      sh "export AWS_ACCESS_KEY_ID=${aws_id}"
+      sh "export AWS_SECRET_ACCESS_KEY=${aws_key}"
       sh "terraform plan -var 'env=${params.env}' aws"
 
     }
