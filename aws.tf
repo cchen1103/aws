@@ -31,7 +31,7 @@ data "terraform_remote_state" "aws_infra" {
     bucket = "aws-infra-tf-state"
     key = "infra/${var.env}/terraform.tfstate"
     access_key = "AKIAIIGMIBUV7QQKFKAQ"
-    secret_key = ""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"
+    secret_key = "/8nOC36z3xrNVu1lRmqf9E4ACVEMZa7+LKbQP5qB"
     region = "${var.aws_region}"
   }
 }
