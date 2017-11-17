@@ -30,12 +30,17 @@ data "terraform_remote_state" "aws_infra" {
   config {
     bucket = "aws-infra-tf-state"
     key = "infra/${var.env}/terraform.tfstate"
-    access_key = "AKIAIIGMIBUV7QQKFKAQ"
-    secret_key = "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"
     region = "${var.aws_region}"
   }
 }
 
+terraform {
+  backend "s3" {
+    bucket = "aws-infra-tf-state"
+    key = "infra/${var.env}/terraform.tfstate"
+    region = "${var.aws_region}"
+  }
+}
 # configure aws provider
 provider "aws" {
   region = "${var.aws_region}"
