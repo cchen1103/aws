@@ -25,11 +25,7 @@ variable "instance_type" {
 }
 
 terraform {
-  backend "s3" {
-    bucket = "aws-infra-tf-state"
-    key = "infra/${var.env}/terraform.tfstate"
-    region = "${var.aws_region}"
-  }
+  backend "s3" {}
 }
 
 # configure backend state using S3 for team sharing on build state
