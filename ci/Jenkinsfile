@@ -18,6 +18,7 @@ node('master'){
 
     tf = docker.image('alpine').inside('--user=root -e AWS_ACCESS_KEY_ID=AKIAIIGMIBUV7QQKFKAQ -e AWS_SECRET_ACCESS_KEY=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') {
 
+      sh 'apk --update add terraform git'
       sh "terraform apply -var 'env=${params.env}' -input=false aws"
 
     }
